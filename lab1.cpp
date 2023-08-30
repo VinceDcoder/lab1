@@ -84,7 +84,7 @@ Global::Global()
 {
 	xres = 400;
 	yres = 200;
-	w = 40.0f;
+	w = 80.0f;
 	dir = 0.3f;
 	pos[0] = 0.0f + w;
 	pos[1] = yres / 2.0f;
@@ -275,8 +275,9 @@ void render()
 	else{
 		glColor3f(1.0, 0.0, 0.0);
 	}
-	if(g.xres < 40.0f){
-		glColor3f(0.0, 0.0, 0.0);
+	if(g.xres <= g.w){
+		glEnd();
+		glPopMatrix();
 	}
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
 	glBegin(GL_QUADS);
